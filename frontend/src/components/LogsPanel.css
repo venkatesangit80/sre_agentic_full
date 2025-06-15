@@ -1,0 +1,27 @@
+.logs-panel {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  color: #333;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.logs-panel h4 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.logs-panel ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+}
+
+.logs-panel li {
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
