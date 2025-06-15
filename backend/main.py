@@ -20,7 +20,7 @@ app.add_middleware(
 )
 
 # Gemini setup for final summarization
-genai.configure(api_key="AIzaSyCZmt2f9wUNYu1T-2PJozFd_t4N1chOv9Y")
+genai.configure(api_key="")
 llm = genai.GenerativeModel("gemini-1.5-flash")
 
 @app.post("/session", response_model=SessionResponse)
