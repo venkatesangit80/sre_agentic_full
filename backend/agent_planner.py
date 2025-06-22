@@ -5,7 +5,7 @@ from agent_contract import AgentContract
 from session_store import get_session_history
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyCZmt2f9wUNYu1T-2PJozFd_t4N1chOv9Y")
+genai.configure(api_key="")
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 # Agent descriptions used for planning
