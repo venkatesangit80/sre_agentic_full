@@ -20,8 +20,6 @@ AGENT_DESCRIPTIONS = {
 def plan_agent_sequence(user_query: str, session_id: str) -> List[AgentContract]:
     history = get_session_history(session_id)
     history_text = "\\n".join([f"{m['role']}: {m['content']}" for m in history])
-    print("history_text")
-    print(history_text)
     planning_prompt = f"""
     You are an agent planner.
 

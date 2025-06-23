@@ -9,11 +9,15 @@ export const createSession = async () => {
   return data.sessionId;
 };
 
-export const sendMessage = async (sessionId, message) => {
-  const res = await fetch(`${API_URL}/chat`, {
+export const sendMessage = async (sessionId, message, history = []) => {
+  const res = await fetch(`${API_URL}/execute`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ sessionId, message }),
+    body: JSON.stringify({
+      prompt: message,
+      history,
+      thread_id: sessionId
+    }),
   });
   const data = await res.json();
   return data;

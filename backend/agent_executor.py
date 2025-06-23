@@ -3,18 +3,12 @@ from agent_contract import AgentContract
 
 # Mock agent execution functions
 def execute_health(contract: AgentContract) -> str:
-    print("Executing health check")
-    print(contract['action_type'])
     return f"[Health Report] : High CPU on 3 servers srv1, srv2, srv3."
 
 def execute_forecast(contract: AgentContract) -> str:
-    print("Executing forecast")
-    print(contract['action_type'])
     return f"[Forecast] CPU threshold likely breached in next 30 minutes for srv1, srv2, srv3."
 
 def execute_anomaly(contract: AgentContract) -> str:
-    print("Executing anomaly detection")
-    print(contract['action_type'])
     return f"[Anomaly] Spikes detected on nodes srv1, srv2, srv3."
 
 def execute_planner(contract: AgentContract) -> str:

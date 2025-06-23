@@ -7,3 +7,5 @@ class AgentState(TypedDict):
     current_step: int
     logs: List[str]
     response: Optional[str]
+    responses: List[str]
+    executed_agents: List[str]

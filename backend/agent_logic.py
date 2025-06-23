@@ -63,7 +63,6 @@ def agent_logic_generate_response(session_id, user_query, history=None):
 
     try:
         agent_sequence = eval(plan_raw)
-        print("Executed")
     except Exception as e:
         print("[Gemini Error] " + str(e))
         agent_sequence = ["planner", "health", "forecast"]  # fallback

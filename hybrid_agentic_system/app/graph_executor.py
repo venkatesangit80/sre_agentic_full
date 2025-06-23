@@ -5,6 +5,7 @@ from app.checkpointer import get_checkpointer
 from langgraph.graph import StateGraph
 
 from app.state_types import AgentState
+from app.llm_summarizer import summarize_response_with_llm
 from typing import List, Dict
 
 def build_and_run_graph(prompt: str, history: List[Dict], thread_id: str):
@@ -17,7 +18,9 @@ def build_and_run_graph(prompt: str, history: List[Dict], thread_id: str):
         "history": history,
         "agent_plan": agent_plan,
         "current_step": 0,
-        "logs": []
+        "logs": [],
+        "responses": [],
+        "executed_agents": []
     }
 
     # Build LangGraph
@@ -28,9 +31,9 @@ def build_and_run_graph(prompt: str, history: List[Dict], thread_id: str):
     # Run graph with checkpointing
     checkpointer = get_checkpointer()
     result = graph.invoke(state, config={"thread_id": thread_id, "checkpointer": checkpointer})
-
+    final_summary = summarize_response_with_llm(result.get("responses", []))
     return {
-        "response": result.get("response", "No response returned."),
+        "response": final_summary,
         "logs": result.get("logs", []),
         "agent_plan": agent_plan
     }
